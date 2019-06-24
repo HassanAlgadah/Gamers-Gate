@@ -7,7 +7,7 @@ import android.content.Context;
 
 import retrofit2.Converter;
 
-@android.arch.persistence.room.Database(entities = Results.class, version = 1, exportSchema = false)
+@android.arch.persistence.room.Database(entities = ResultsFav.class, version = 1, exportSchema = false)
 public abstract class Database extends RoomDatabase {
     public abstract GamesDAO gamesDAO();
 

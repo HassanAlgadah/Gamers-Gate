@@ -11,22 +11,22 @@ public class FavWorker {
         database = Database.getDatabase(context);
     }
 
-    public void insertFave(Results game){
+    public void insertFave(ResultsFav game){
         isFav = true;
         new FavAsyncTask().execute(game);
     }
-    public void deletFav(Results game){
+    public void deletFav(ResultsFav game){
         isFav = false;
         new FavAsyncTask().execute(game);
     }
 
-    public class FavAsyncTask extends AsyncTask<Results,Void,Void>{
+    public class FavAsyncTask extends AsyncTask<ResultsFav,Void,Void>{
         @Override
-        protected Void doInBackground(Results... results) {
+        protected Void doInBackground(ResultsFav... resultsFavs) {
             if(isFav){
-                database.gamesDAO().insertgame(results[0]);
+                database.gamesDAO().insertgame(resultsFavs[0]);
             }else {
-                database.gamesDAO().deletegame(results[0].getSlug());
+                database.gamesDAO().deletegame(resultsFavs[0].getSlug());
             }
             return null;
         }

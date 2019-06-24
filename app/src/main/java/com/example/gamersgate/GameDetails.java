@@ -33,6 +33,7 @@ public class GameDetails extends AppCompatActivity {
     private ImageView fav;
     private FavWorker favWorker;
     private Results results;
+    private ResultsFav resultsfav;
     private boolean clicked = false;
     private static String API = "https://api.rawg.io/";
 
@@ -60,8 +61,10 @@ public class GameDetails extends AppCompatActivity {
         fav = findViewById(R.id.heart);
         name.setText(results.getName());
         reles.setText(results.getreleased());
+        resultsfav = new ResultsFav(results.getName(),results.getBackground_image(),results.getRating(),results.getReleased(),results.getSlug());
 
-        rating.append(Double.toString(results.getRating()));
+
+            rating.append(Double.toString(results.getRating()));
         String im = results.getbackground_image();
         Picasso.get()
                 .load(im)
@@ -85,6 +88,14 @@ public class GameDetails extends AppCompatActivity {
             @Override
             public void onFailure(Call<game> call, Throwable t) {
                 System.out.println(t);
+            }
+        });
+        new StarAsyncTask().execute(resultsfav);
+        fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new StarAsyncTask().execute(resultsfav);
+                clicked = true;
             }
         });
 
@@ -116,32 +127,32 @@ public class GameDetails extends AppCompatActivity {
             }
         }
     }
-    private void markAsFavorite(Results game) {
+    private void markAsFavorite(ResultsFav game) {
         favWorker.insertFave(game);
     }
-    private void unfavoriteGame(Results results) {
+    private void unfavoriteGame(ResultsFav results) {
         favWorker.deletFav(results);
     }
 
 
-    public class StarAsyncTask extends AsyncTask<Results, Void, Results> {
+    public class StarAsyncTask extends AsyncTask<ResultsFav, Void, ResultsFav> {
 
         @Override
-        protected Results doInBackground(Results... gamess) {
+        protected ResultsFav doInBackground(ResultsFav... gamess) {
             Database database = Database.getDatabase(GameDetails.this);
-            Results sgames = database.gamesDAO().getSinglegame(gamess[0].getSlug());
+            ResultsFav sgames = database.gamesDAO().getSinglegame(gamess[0].getSlug());
             return sgames;
         }
 
         @Override
-        protected void onPostExecute(Results games) {
+        protected void onPostExecute(ResultsFav games) {
             super.onPostExecute(games);
             if (clicked) {
                 if (games != null) {
                     unfavoriteGame(games);
                     fav.setImageResource(R.drawable.heartempty);
                 } else {
-                    markAsFavorite(results);
+                    markAsFavorite(resultsfav);
                     fav.setImageResource(R.drawable.heart);
                 }
             } else {

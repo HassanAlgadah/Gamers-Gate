@@ -9,13 +9,13 @@ import java.util.List;
 @Dao
 public interface GamesDAO {
     @Insert
-    public void insertgame(Results game);
-    @Query("DELETE FROM Results WHERE slug = :id")
+    public void insertgame(ResultsFav game);
+    @Query("DELETE FROM ResultsFav WHERE slug = :id")
     void deletegame(String id);
 
-    @Query("Select * from Results")
-    public LiveData<List<Results>> getAllgames();
+    @Query("Select * from ResultsFav")
+    public LiveData<List<ResultsFav>> getAllgames();
 
-    @Query("SELECT * FROM Results WHERE slug = :id")
-    public Results getSinglegame(String id);
+    @Query("SELECT * FROM ResultsFav WHERE slug = :id")
+    public ResultsFav getSinglegame(String id);
 }

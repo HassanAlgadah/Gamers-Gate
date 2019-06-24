@@ -33,7 +33,6 @@ public class GameList extends AppCompatActivity implements RecAdapter.RecAdapter
         recyclerView.setLayoutManager(layoutManager);
         recAdapter = new RecAdapter(this);
 
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API)
                 .addConverterFactory(GsonConverterFactory.create())

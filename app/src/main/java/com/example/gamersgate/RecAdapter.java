@@ -16,7 +16,9 @@ import java.util.List;
 
 public class RecAdapter extends RecyclerView.Adapter<RecAdapter.Viewholder> {
     private List<Results> resultsList;
+    private List<ResultsFav> resultsfav;
     private Context con;
+    private Boolean isfav = false;
 
     private final RecAdapterClickHandler mClickHandler;
 
@@ -41,25 +43,48 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.Viewholder> {
 
     @Override
     public void onBindViewHolder(@NonNull Viewholder viewholder, int i) {
-        Results m = resultsList.get(i);
-        viewholder.gamename.append(m.getName());
-        viewholder.date.append(m.getreleased());
-        viewholder.rat.append(Double.toString(m.getRating()));
-        if(m.getbackground_image()!=null) {
-            String im = m.getbackground_image();
-            Picasso.get()
-                    .load(im)
-                    .into(viewholder.image);
-        }
-        for (Platformm k: m.getplatforms()) {
-            viewholder.plat.append(k.getplatform().getName()+", ");
+        System.out.println("hassan");
+        if (!isfav) {
+            System.out.println("hi33");
+            Results m = resultsList.get(i);
+            viewholder.gamename.append(m.getName());
+            viewholder.date.append(m.getreleased());
+            viewholder.rat.append(Double.toString(m.getRating()));
+            if (m.getbackground_image() != null) {
+                String im = m.getbackground_image();
+                Picasso.get()
+                        .load(im)
+                        .into(viewholder.image);
+            }
+            if (m.getPlatforms() != null) {
+                for (Platformm k : m.getplatforms()) {
+                    viewholder.plat.append(k.getplatform().getName() + ", ");
+                }
+            }
+        } else {
+            System.out.println("hi1");
+            ResultsFav m = resultsfav.get(i);
+            viewholder.gamename.append(m.getName());
+            viewholder.date.append(m.getReleased());
+            viewholder.rat.append(Double.toString(m.getRating()));
+            if (m.getBackground_image() != null) {
+                String im = m.getBackground_image();
+                Picasso.get()
+                        .load(im)
+                        .into(viewholder.image);
+            }
         }
     }
 
     public void setResults(List<Results> Resultss) {
         resultsList = Resultss;
-        System.out.println(resultsList.get(0).getName()+"1");
-        System.out.println(Resultss.get(0).getName()+"2");
+    }
+    public void setResultsFav(List<ResultsFav> Resultss) {
+        resultsfav = Resultss;
+    }
+
+    public void setIsfav(Boolean isfav) {
+        this.isfav = isfav;
     }
 
     @Override
