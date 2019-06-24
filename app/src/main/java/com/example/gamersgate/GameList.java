@@ -56,17 +56,9 @@ public class GameList extends AppCompatActivity implements RecAdapter.RecAdapter
     @Override
     public void onClick(Results Results) {
         ArrayList<String> plats= new ArrayList<>();
-        for (Platformm k: Results.getplatforms()) {
-            plats.add(k.platform.getName());
-        }
-        ArrayList<String> ge= new ArrayList<>();
-        for (genre g: Results.getGenre()) {
-            ge.add(g.getName());
-        }
+
         Bundle bundle = new Bundle();
         bundle.putParcelable("gamee",Results);
-        bundle.putStringArrayList("plat",plats);
-        bundle.putStringArrayList("ge",ge);
         Intent intent = new Intent(this,GameDetails.class);
         intent.putExtra("game",bundle);
         startActivity(intent);

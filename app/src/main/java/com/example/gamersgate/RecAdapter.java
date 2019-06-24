@@ -90,6 +90,9 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.Viewholder> {
     @Override
     public int getItemCount() {
         if (resultsList == null) {
+            if(resultsfav!=null){
+                return resultsfav.size();
+            }
             return 0;
         }
         return resultsList.size();

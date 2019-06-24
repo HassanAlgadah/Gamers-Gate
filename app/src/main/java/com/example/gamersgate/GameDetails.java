@@ -43,8 +43,6 @@ public class GameDetails extends AppCompatActivity {
         setContentView(R.layout.activity_game_details);
         Bundle bundle = getIntent().getBundleExtra("game");
         Results results = bundle.getParcelable("gamee");
-        ArrayList<String> plats = bundle.getStringArrayList("plat");
-        ArrayList<String> ge = bundle.getStringArrayList("ge");
 
         name = findViewById(R.id.name);
         des = findViewById(R.id.des);
@@ -62,17 +60,13 @@ public class GameDetails extends AppCompatActivity {
         name.setText(results.getName());
         reles.setText(results.getreleased());
         resultsfav = new ResultsFav(results.getName(),results.getBackground_image(),results.getRating(),results.getReleased(),results.getSlug());
-
-
-            rating.append(Double.toString(results.getRating()));
+        rating.append(Double.toString(results.getRating()));
         String im = results.getbackground_image();
         Picasso.get()
                 .load(im)
                 .into(gamepic);
-        setupplat(plats, ge);
+
         favWorker = new FavWorker(GameDetails.this);
-
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -82,7 +76,16 @@ public class GameDetails extends AppCompatActivity {
         call.enqueue(new Callback<game>() {
             @Override
             public void onResponse(Call<game> call, Response<game> response) {
+                ArrayList<String> plats = new ArrayList<>();
+                ArrayList<String> ge = new ArrayList<>();
                 des.setText(response.body().getDescription_raw());
+                for (Platformm k: response.body().getPlatforms()) {
+                    plats.add(k.platform.getName());
+                }
+                for (genre g: response.body().getGenres()) {
+                    ge.add(g.getName());
+                }
+                setupplat(plats, ge);
             }
 
             @Override

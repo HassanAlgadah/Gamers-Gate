@@ -188,6 +188,24 @@ class genre {
 class game{
     private List<Results> results;
     private String description_raw;
+    private List<Platformm> platforms;
+    private List<genre> genres;
+
+    public List<genre> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(List<genre> genres) {
+        this.genres = genres;
+    }
+
+    public List<Platformm> getPlatforms() {
+        return platforms;
+    }
+
+    public void setPlatforms(List<Platformm> platforms) {
+        this.platforms = platforms;
+    }
 
     public String getDescription_raw() {
         return description_raw;
