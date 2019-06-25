@@ -22,7 +22,9 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/image_of_the_game"
+            />
 
         <TextView
             android:id="@+id/name"
@@ -33,7 +35,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="TextView"
+            android:text="@string/textview"
             android:textSize="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +51,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
-            android:text="Platforms"
+            android:text="@string/platforms"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -65,7 +67,9 @@
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/plat"
-            app:srcCompat="@drawable/pc" />
+            app:srcCompat="@drawable/pc"
+            android:contentDescription="@string/pc"
+            />
 
         <ImageView
             android:id="@+id/ps3"
@@ -76,7 +80,9 @@
             android:visibility="gone"
             app:layout_constraintStart_toEndOf="@+id/pc"
             app:layout_constraintTop_toBottomOf="@+id/plat"
-            app:srcCompat="@drawable/ps3" />
+            app:srcCompat="@drawable/ps3"
+            android:contentDescription="@string/ps3"
+            />
 
         <ImageView
             android:id="@+id/ps4"
@@ -87,7 +93,8 @@
             android:visibility="gone"
             app:layout_constraintStart_toEndOf="@+id/ps3"
             app:layout_constraintTop_toBottomOf="@+id/plat"
-            app:srcCompat="@drawable/ps4" />
+            app:srcCompat="@drawable/ps4"
+            android:contentDescription="@string/ps4"/>
 
         <ImageView
             android:id="@+id/x3"
@@ -98,7 +105,9 @@
             android:visibility="gone"
             app:layout_constraintStart_toEndOf="@+id/ps4"
             app:layout_constraintTop_toBottomOf="@+id/plat"
-            app:srcCompat="@drawable/xbox" />
+            app:srcCompat="@drawable/xbox"
+            android:contentDescription="@string/xbox"
+            />
 
         <ImageView
             android:id="@+id/sw"
@@ -109,7 +118,9 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/plat"
-            app:srcCompat="@drawable/switchh" />
+            app:srcCompat="@drawable/switchh"
+            android:contentDescription="@string/swtich"
+            />
 
         <ImageView
             android:id="@+id/x1"
@@ -122,7 +133,9 @@
             app:layout_constraintStart_toEndOf="@+id/x3"
             app:layout_constraintTop_toBottomOf="@+id/plat"
             app:srcCompat="@drawable/xboxone"
-            android:visibility="gone" />
+            android:visibility="gone"
+            android:contentDescription="@string/xboxone"
+            />
 
         <TextView
             android:id="@+id/textView4"
@@ -132,7 +145,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="60dp"
             android:layout_marginEnd="8dp"
-            android:text="Description:"
+            android:text="@string/description"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -147,7 +160,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:text="TextView"
+            android:text="@string/textview"
             android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -162,7 +175,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="28dp"
             android:layout_marginEnd="8dp"
-            android:text="Rating: "
+            android:text="@string/rating"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -176,7 +189,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:text="relese"
+            android:text="@string/relese"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -188,7 +201,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Genres : "
+            android:text="@string/genres"
             app:layout_constraintTop_toBottomOf="@+id/ratting"
             tools:layout_editor_absoluteX="8dp" />
 

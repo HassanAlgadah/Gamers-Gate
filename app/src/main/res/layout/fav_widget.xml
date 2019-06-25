@@ -11,7 +11,7 @@
         android:background="@color/colorPrimaryDark"
         android:textColor="@color/red"
         android:textSize="10dp"
-        android:text="favorite Games"
+        android:text="@string/favorite_games"
         />
 
 

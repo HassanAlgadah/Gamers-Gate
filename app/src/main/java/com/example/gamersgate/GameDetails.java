@@ -3,6 +3,8 @@ package com.example.gamersgate;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -43,6 +45,7 @@ public class GameDetails extends AppCompatActivity {
         setContentView(R.layout.activity_game_details);
         Bundle bundle = getIntent().getBundleExtra("game");
         Results results = bundle.getParcelable("gamee");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         name = findViewById(R.id.name);
         des = findViewById(R.id.des);
@@ -59,7 +62,7 @@ public class GameDetails extends AppCompatActivity {
         fav = findViewById(R.id.heart);
         name.setText(results.getName());
         reles.setText(results.getreleased());
-        resultsfav = new ResultsFav(results.getName(),results.getBackground_image(),results.getRating(),results.getReleased(),results.getSlug());
+        resultsfav = new ResultsFav(results.getName(), results.getBackground_image(), results.getRating(), results.getReleased(), results.getSlug());
         rating.append(Double.toString(results.getRating()));
         String im = results.getbackground_image();
         Picasso.get()
@@ -79,10 +82,10 @@ public class GameDetails extends AppCompatActivity {
                 ArrayList<String> plats = new ArrayList<>();
                 ArrayList<String> ge = new ArrayList<>();
                 des.setText(response.body().getDescription_raw());
-                for (Platformm k: response.body().getPlatforms()) {
+                for (Platformm k : response.body().getPlatforms()) {
                     plats.add(k.platform.getName());
                 }
-                for (genre g: response.body().getGenres()) {
+                for (genre g : response.body().getGenres()) {
                     ge.add(g.getName());
                 }
                 setupplat(plats, ge);
@@ -90,7 +93,7 @@ public class GameDetails extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<game> call, Throwable t) {
-                System.out.println(t+"hh");
+                System.out.println(t + "hh");
             }
         });
         new StarAsyncTask().execute(resultsfav);
@@ -130,9 +133,11 @@ public class GameDetails extends AppCompatActivity {
             }
         }
     }
+
     private void markAsFavorite(ResultsFav game) {
         favWorker.insertFave(game);
     }
+
     private void unfavoriteGame(ResultsFav results) {
         favWorker.deletFav(results);
     }
@@ -167,5 +172,19 @@ public class GameDetails extends AppCompatActivity {
             }
         }
     }
-}
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
+    }
+}
