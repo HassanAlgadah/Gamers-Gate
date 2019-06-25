@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "55991249816",
+    "firebase_url": "https://gamersgate-5cfbb.firebaseio.com",
+    "project_id": "gamersgate-5cfbb",
+    "storage_bucket": "gamersgate-5cfbb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:55991249816:android:0ad2d3c87b750bd3",
+        "android_client_info": {
+          "package_name": "com.example.gamersgate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "55991249816-fag0rftoroei2tcipa08nubn4milvurb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPG79ndWnZo-hfXz1xPKZzGWnbaYEN-0w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "55991249816-fag0rftoroei2tcipa08nubn4milvurb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

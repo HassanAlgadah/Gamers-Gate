@@ -4,12 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/background"
+    >
 
     <TextView
         android:id="@+id/Search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
         android:text="Search!"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,11 +50,54 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/GamesName" />
 
+    <Button
+        android:id="@+id/Sign"
+        style="@style/FirebaseUI.Button.AccountChooser.GoogleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/black"
+        android:text="@string/fui_sign_in_with_google"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="createSignInIntent"
+        />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/favrec" />
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        ads:layout_constraintBottom_toBottomOf="@+id/favrec"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.498"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/button"
+        ads:layout_constraintVertical_bias="1.0"></com.google.android.gms.ads.AdView>
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/favrec"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-></android.support.v7.widget.RecyclerView>
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="-31dp"></android.support.v7.widget.RecyclerView>
 
 
 </android.support.constraint.ConstraintLayout>
