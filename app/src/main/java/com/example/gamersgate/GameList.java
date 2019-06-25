@@ -55,8 +55,6 @@ public class GameList extends AppCompatActivity implements RecAdapter.RecAdapter
 
     @Override
     public void onClick(Results Results) {
-        ArrayList<String> plats= new ArrayList<>();
-
         Bundle bundle = new Bundle();
         bundle.putParcelable("gamee",Results);
         Intent intent = new Intent(this,GameDetails.class);

@@ -7,4 +7,9 @@
         android:title="Favorites"
         app:showAsAction="ifRoom"
         />
+     <item
+        android:id="@+id/ser"
+        android:title="Search"
+        app:showAsAction="ifRoom"
+        />
 </menu>

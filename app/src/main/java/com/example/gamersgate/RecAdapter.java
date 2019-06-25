@@ -48,7 +48,11 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.Viewholder> {
             System.out.println("hi33");
             Results m = resultsList.get(i);
             viewholder.gamename.append(m.getName());
-            viewholder.date.append(m.getreleased());
+            if(m.getreleased()!=null) {
+                viewholder.date.append(m.getreleased());
+            }else{
+                viewholder.date.append("unknown");
+            }
             viewholder.rat.append(Double.toString(m.getRating()));
             if (m.getbackground_image() != null) {
                 String im = m.getbackground_image();
@@ -119,8 +123,19 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.Viewholder> {
         @Override
         public void onClick(View v) {
             int adapterPosition = getAdapterPosition();
-            Results m = resultsList.get(adapterPosition);
-            mClickHandler.onClick(m);
+            Results m = new Results();
+            if(resultsfav!=null){
+                System.out.println("what is happing");
+                m.setName(resultsfav.get(adapterPosition).getName());
+                m.setBackground_image(resultsfav.get(adapterPosition).getBackground_image());
+                m.setRating(resultsfav.get(adapterPosition).getRating());
+                m.setReleased(resultsfav.get(adapterPosition).getReleased());
+                m.setSlug(resultsfav.get(adapterPosition).getSlug());
+                mClickHandler.onClick(m);
+            }else {
+                Results n = resultsList.get(adapterPosition);
+                mClickHandler.onClick(n);
+            }
         }
     }
 }

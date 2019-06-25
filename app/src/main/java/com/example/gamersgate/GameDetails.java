@@ -90,7 +90,7 @@ public class GameDetails extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<game> call, Throwable t) {
-                System.out.println(t);
+                System.out.println(t+"hh");
             }
         });
         new StarAsyncTask().execute(resultsfav);

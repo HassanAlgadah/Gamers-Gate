@@ -11,15 +11,15 @@ import java.util.List;
 public class Results implements Parcelable {
     @PrimaryKey (autoGenerate = true)
     private int id;
-    private String name ;
+    private String name = "err" ;
     private String background_image ;
-    private double rating ;
+    private double rating = 0  ;
     private List<Platformm> platforms;
-    private String released;
+    private String released = "err" ;
     private String Discrption;
-    private String slug;
-    private List<genre> genres;
-    private String description_raw;
+    private String slug = "err" ;
+    private List<genre> genres ;
+    private String description_raw = "err" ;
 
     public Results() {
     }
