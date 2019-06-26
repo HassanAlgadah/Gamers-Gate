@@ -4,12 +4,12 @@
 
     <item
         android:id="@+id/fav"
-        android:title="Favorites"
+        android:title="@string/favorites"
         app:showAsAction="ifRoom"
         />
      <item
         android:id="@+id/ser"
-        android:title="Search"
+        android:title="@string/searchbu"
         app:showAsAction="ifRoom"
         />
 </menu>
